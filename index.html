@@ -188,6 +188,85 @@
             color: yellow;
         }
 
+        .stats p {
+            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+            display: inline-block;
+            padding: 5px 20px;
+        }
+
+        .stats p:hover {
+            transform: scale(1.1) rotate(2deg);
+            text-shadow: 0px 0px 15px rgb(255, 0, 0);
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: scale(1.1) rotate(2deg); }
+            50% { transform: scale(1.15) rotate(-2deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        .fact-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px yellow;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.05);
+        }
+
+        .fact-box h2 {
+            color: yellow;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-shadow: 0px 0px 10px yellow;
+        }
+
+        .fact-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            min-height: 60px;
+        }
+
+        .emoji-buttons {
+            margin-top: 10px;
+        }
+
+        .emoji-btn {
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+
+        .emoji-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .new-fact-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background: purple;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .new-fact-btn:hover {
+            background: darkviolet;
+        }
+
         .start-btn {
             padding: 15px 30px;
             font-size: 1.5em;
@@ -211,30 +290,31 @@
             from { box-shadow: 0px 0px 15px red; }
             to { box-shadow: 0px 0px 25px red; }
         }
-
-        .cyber-img {
-            width: 200px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to the Cyber Security Game 🔐</h1>
         <p>Think you're safe online? Test your knowledge and stay alert in this interactive cybersecurity challenge!</p>
-        
-        <img class="cyber-img" src="./home.jpg" alt="Cyber Security">
-        
+
         <div class="stats">
-            <p>🌍 Real-Time Cyber Attacks Happening Now:</p>
-            <p>🔴 Ransomware Attacks: <span id="ransomware">0</span></p>
-            <p>⚠️ Phishing Attempts: <span id="phishing">0</span></p>
-            <p>💻 Data Breaches: <span id="dataBreaches">0</span></p>
+            <p>🌍 Real-Time Cyber Attacks Happening Now:</p><br><br>
+            <p class="hover-animate">🔴 Ransomware Attacks: <span id="ransomware">500</span></p><br><br>
+            <p class="hover-animate">⚠️ Phishing Attempts: <span id="phishing">1000</span></p><br><br>
+            <p class="hover-animate">💻 Data Breaches: <span id="dataBreaches">50</span></p><br><br>
         </div>
 
-        <br>
+        <div class="fact-box">
+            <h2>🧐 DID YOU KNOW?</h2>
+            <p id="cyberFact" class="fact-text"></p>
+            <div class="emoji-buttons">
+                <button class="emoji-btn" onclick="reactToFact('👍')">👍</button>
+                <button class="emoji-btn" onclick="reactToFact('😮')">😮</button>
+                <button class="emoji-btn" onclick="reactToFact('🔥')">🔥</button>
+            </div>
+            <button class="new-fact-btn" onclick="displayRandomFact()">🎲 Show Another Fact</button>
+        </div>
+
         <button class="start-btn" onclick="startGame()">🚀 Start the Game</button>
     </div>
 
@@ -243,18 +323,32 @@
             window.location.href = "game.html"; // Redirects to the game page
         }
 
-        // Function to generate random numbers for cyber attack statistics
-        function updateStats() {
-            document.getElementById("ransomware").textContent = Math.floor(Math.random() * 5000) + 500;
-            document.getElementById("phishing").textContent = Math.floor(Math.random() * 20000) + 1000;
-            document.getElementById("dataBreaches").textContent = Math.floor(Math.random() * 1000) + 50;
+        // Cybersecurity Facts Array
+        const cyberFacts = [
+            "🔐 Over 90% of cyberattacks start with a phishing email. Stay alert!",
+            "💰 Ransomware attacks happen every 14 seconds worldwide! 😱",
+            "💸 The average cost of a data breach in 2023 was $4.45 million! 🔥",
+            "👀 Hackers can exploit an unpatched vulnerability in just 24 hours! ⏳",
+            "🔍 Weak passwords cause 80% of hacking-related breaches. Use a strong one!",
+            "🕵️‍♂️ Only 5% of company folders are properly protected against cyber threats. 😨",
+            "🌐 The dark web sells stolen data for as little as $1 per record. 💀",
+            "🛡️ Multi-factor authentication (MFA) can block 99.9% of automated cyberattacks!",
+            "🤖 AI is being used by hackers AND cybersecurity experts in digital battles! ⚔️",
+            "🎭 Deepfake scams are rising – don’t trust everything you see online!"
+        ];
+
+        function displayRandomFact() {
+            let factElement = document.getElementById("cyberFact");
+            let randomFact = cyberFacts[Math.floor(Math.random() * cyberFacts.length)];
+            factElement.textContent = randomFact;
         }
 
-        // Update stats every 3 seconds to simulate real-time data
-        setInterval(updateStats, 3000);
+        function reactToFact(emoji) {
+            alert("You reacted with: " + emoji + " 🎉");
+        }
 
-        // Initial call to populate values
-        updateStats();
+        // Load the first random fact
+        displayRandomFact();
     </script>
 </body>
 </html>
