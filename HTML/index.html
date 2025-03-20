@@ -1,0 +1,260 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Game 🛡️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #00ffcc;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+            to { text-shadow: 0 0 20px #ff3300, 0 0 30px #ff3300; }
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        .question {
+            font-size: 1.3em;
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #ff3300;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #cc0000;
+        }
+        .warning {
+            display: none;
+            font-size: 1.2em;
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .cyber-attack {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ffcc00;
+        }
+        img {
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cyber Security Game 🛡️</h1>
+
+    <div class="quiz-container">
+        <h2>Can you protect yourself from cyber threats? 🤔</h2>
+        
+        Question 1 -->
+        <!-- <div class="question">
+            <p>1️⃣ What is the most common type of cyber attack?</p>
+            <img src="./cyber_Attack.jpg" alt="Cyber Attack">
+            <br>
+            <button class="btn" onclick="showWarning('warning1')">Clicking on unknown links</button>
+            <button class="btn" onclick="showWarning('warning1')">Using strong passwords</button>
+            <div id="warning1" class="warning">🚨 You are in danger! Hackers love careless clicks!</div>
+        </div> -->
+
+        <!-- Question 2 -->
+        <!-- <div class="question">
+            <p>2️⃣ You receive an email from your bank asking for your password. What should you do?</p>
+            <img src="./Phishing.jpg" alt="Phishing Email">
+            <br>
+            <button class="btn" onclick="showWarning('warning2')">Reply with my password</button>
+            <button class="btn" onclick="showWarning('warning2')">Ignore and report the email</button>
+            <div id="warning2" class="warning">⚠️ Your account has been hacked! Never share passwords via email!</div>
+        </div> -->
+
+        <!-- Question 3 -->
+        <!-- <div class="question">
+            <p>3️⃣ What should you do if your social media account is hacked?</p>
+            <img src="Hackerr.jpg" alt="Hacker Image">
+            <br>
+            <button class="btn" onclick="showWarning('warning3')">Ignore it</button>
+            <button class="btn" onclick="showWarning('warning3')">Change password and enable 2FA</button>
+            <div id="warning3" class="warning">🚨 Immediate action needed! Secure your account NOW!</div>
+        </div>
+
+        <div class="cyber-attack">
+            <p>🌐 Real-time cyber attacks happening now:</p>
+            <p id="cyber-attack-data">Fetching latest data...</p>
+        </div>
+    </div>
+
+    <script>
+        function showWarning(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function updateCyberAttacks() {
+            const attacks = [
+                "🔴 500 Phishing Attacks detected worldwide!",
+                "🛑 Ransomware attack on a major hospital!",
+                "⚠️ Data breach leaked 1M user passwords!",
+                "🔐 A hacker stole sensitive banking data!"
+            ];
+            const randomAttack = attacks[Math.floor(Math.random() * attacks.length)];
+            document.getElementById("cyber-attack-data").innerText = randomAttack;
+        }
+
+        setInterval(updateCyberAttacks, 5000); // Update every 5 seconds
+        updateCyberAttacks(); // Initial call
+    </script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Awareness Game 🛡️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?cybersecurity,technology,hacker') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 90vw;
+            margin: auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px cyan;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: cyan;
+            text-shadow: 0px 0px 15px cyan;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 15px cyan, 0 0 30px cyan; }
+            to { text-shadow: 0 0 20px red, 0 0 40px red; }
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: auto;
+            color: #ddd;
+        }
+
+        .stats {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: yellow;
+        }
+
+        .start-btn {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            color: white;
+            background: red;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .start-btn:hover {
+            background: darkred;
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse {
+            from { box-shadow: 0px 0px 15px red; }
+            to { box-shadow: 0px 0px 25px red; }
+        }
+
+        .cyber-img {
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Cyber Security Game 🔐</h1>
+        <p>Think you're safe online? Test your knowledge and stay alert in this interactive cybersecurity challenge!</p>
+        
+        <img class="cyber-img" src="./home.jpg" alt="Cyber Security">
+        
+        <div class="stats">
+            <p>🌍 Real-Time Cyber Attacks Happening Now:</p>
+            <p>🔴 Ransomware Attacks: <span id="ransomware">0</span></p>
+            <p>⚠️ Phishing Attempts: <span id="phishing">0</span></p>
+            <p>💻 Data Breaches: <span id="dataBreaches">0</span></p>
+        </div>
+
+        <br>
+        <button class="start-btn" onclick="startGame()">🚀 Start the Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            window.location.href = "game.html"; // Redirects to the game page
+        }
+
+        // Function to generate random numbers for cyber attack statistics
+        function updateStats() {
+            document.getElementById("ransomware").textContent = Math.floor(Math.random() * 5000) + 500;
+            document.getElementById("phishing").textContent = Math.floor(Math.random() * 20000) + 1000;
+            document.getElementById("dataBreaches").textContent = Math.floor(Math.random() * 1000) + 50;
+        }
+
+        // Update stats every 3 seconds to simulate real-time data
+        setInterval(updateStats, 3000);
+
+        // Initial call to populate values
+        updateStats();
+    </script>
+</body>
+</html>
