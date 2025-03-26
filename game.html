@@ -3,135 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Security Quiz 🛡️</title>
+    <title>🛡️ Cyber Awareness Quiz 🔐</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @keyframes scanLine {
+            from { top: 0; }
+            to { top: 100%; }
         }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: black;
-            color: white;
+            background-color: black;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
             text-align: center;
+            margin: 0;
             overflow: hidden;
-            height: 100vh;
+            min-height: 100vh;
+        }
+
+        .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 100vh;
+            padding: 2vw;
+            box-sizing: border-box;
         }
-        .background {
+
+        .matrix {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?hacker,cybersecurity') no-repeat center center fixed;
+            background: url('https://i.imgur.com/7kjXKZS.gif') repeat;
             background-size: cover;
+            opacity: 0.2;
             z-index: -1;
-            animation: flicker 3s infinite alternate;
         }
-        @keyframes flicker {
-            0% { opacity: 0.8; }
-            100% { opacity: 1; }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: clamp(0.2rem, 0.5vw, 0.3rem);
+            background: rgba(0, 255, 0, 0.5);
+            animation: scanLine 3s infinite linear alternate;
         }
-        .container {
-            width: 90%;
-            max-width: 600px;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px cyan;
-            animation: fadeIn 1s ease-in-out;
+
+        .quiz-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: clamp(1rem, 3vw, 2rem);
+            border: 0.15vw solid #0f0;
+            border-radius: 1vw;
+            box-shadow: 0 0 0.5vw #0f0;
+            width: clamp(50%, 80vw, 60%);
+            max-width: 90%;
+            box-sizing: border-box;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+
         h1 {
-            font-size: 2em;
-            color: cyan;
-            text-shadow: 0px 0px 10px cyan;
-            animation: glow 1.5s infinite alternate;
+            font-size: clamp(1.5em, 4vw, 2.5em);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
         }
-        @keyframes glow {
-            from { text-shadow: 0 0 15px cyan, 0 0 30px cyan; }
-            to { text-shadow: 0 0 20px red, 0 0 40px red; }
+
+        h2#question-text {
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+            line-height: 1.2;
         }
-        .question {
-            font-size: 18px;
-            margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-        }
+
         .btn {
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-            background: red;
+            background: #0f0;
+            color: black;
             border: none;
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2.5vw, 1.5rem);
+            margin: clamp(0.5rem, 1vw, 0.8rem);
             cursor: pointer;
-            margin: 5px;
-            border-radius: 5px;
-            transition: 0.3s;
+            font-size: clamp(0.9em, 2vw, 1.2em);
+            border-radius: 0.5vw;
+            transition: background 0.3s, color 0.3s, border 0.3s;
+            width: clamp(8rem, 25vw, 12rem);
+            max-width: 80%;
+            display: inline-block;
         }
+
         .btn:hover {
-            background: darkred;
-            transform: scale(1.05);
+            background: black;
+            color: #0f0;
+            border: 0.15vw solid #0f0;
+        }
+
+        #hint {
+            display: none;
+            font-size: clamp(0.8em, 1.8vw, 1em);
+            color: #ff0;
+            margin-top: clamp(0.5rem, 1vw, 0.8rem);
+        }
+
+        #score {
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            margin-top: clamp(0.8rem, 2vw, 1.2rem);
+        }
+
+        p {
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            margin: clamp(0.5rem, 1vw, 0.8rem) 0;
+        }
+
+        /* Media Queries for Fine-Tuning */
+        @media (max-width: 768px) {
+            .quiz-box {
+                width: 85%;
+            }
+
+            .btn {
+                width: 70%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2#question-text {
+                font-size: 2.5vw;
+            }
+
+            .btn {
+                padding: 1.5vw 3vw;
+                font-size: 2vw;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <div class="matrix"></div>
+    <div class="scan-line"></div>
     <div class="container">
-        <h1>🛡️ Welcome to Cyber Security Quiz! ⚡</h1>
-        <p id="question" class="question"></p>
-        <button class="btn" id="option1" onclick="checkAnswer(true)"></button>
-        <button class="btn" id="option2" onclick="checkAnswer(false)"></button>
+        <div class="quiz-box">
+            <h2 id="question-text">Loading...</h2>
+            <button class="btn" id="option1">Option 1</button>
+            <button class="btn" id="option2">Option 2</button>
+            <p id="hint"></p>
+            <p id="score">Score: 0</p>
+        </div>
     </div>
-
     <script>
-        const questions = [
-            { q: "Your passport has been suspended! Pay ₹999 to reinstate. What do you do?", correct: "Verify Officially", wrong: "Pay Now" },
-            { q: "Instagram email says account will be locked! What do you do?", correct: "Check Officially", wrong: "Enter Details" },
-            { q: "You've won $10,000! Share bank details to claim. What do you do?", correct: "Ignore", wrong: "Share Details" },
-            { q: "Friend asks for money, but email seems odd. What do you do?", correct: "Verify First", wrong: "Send Money" },
-            { q: "Bank calls, asking for OTP to prevent account closure. What do you do?", correct: "Deny OTP", wrong: "Share OTP" },
-            { q: "Public WiFi is free. You need to check your bank account. What do you do?", correct: "Use Mobile Data", wrong: "Use WiFi" },
-            { q: "Pop-up says your device is infected! Install tool? What do you do?", correct: "Ignore", wrong: "Install Tool" },
-            { q: "Scammer pretends to be a celebrity asking for money. What do you do?", correct: "Verify Source", wrong: "Send Money" },
-            { q: "Aadhaar update required via unknown link. What do you do?", correct: "Check UIDAI", wrong: "Update Now" },
-            { q: "Website offers expensive product for 90% off! What do you do?", correct: "Avoid Site", wrong: "Buy Quickly" }
-        ];
-        
-        let currentQuestionIndex = 0;
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = [
+                { text: "What is the safest way to store passwords?", options: ["Write them down", "Use a password manager"], correct: 1 },
+                { text: "Which is the most secure type of authentication?", options: ["Two-Factor Authentication", "Single password"], correct: 0 },
+                { text: "Your bank asks for your OTP over a call. What do you do?", options: ["Share OTP", "Deny OTP"], correct: 1 },
+                { text: "A pop-up warns your device is infected. What do you do?", options: ["Install Tool", "Ignore Pop-up"], correct: 1 },
+                { text: "A message says you've won $10,000. What do you do?", options: ["Share Details", "Ignore Message"], correct: 1 },
+                { text: "You receive an email from an unknown sender with an attachment. What do you do?", options: ["Open Attachment", "Delete Email"], correct: 1 },
+                { text: "Your friend sends you a suspicious link. What do you do?", options: ["Click it", "Verify First"], correct: 1 },
+                { text: "Your password is 'password123'. What should you do?", options: ["Keep It", "Change It"], correct: 1 },
+                { text: "You see a login page that looks slightly off. What do you do?", options: ["Enter Credentials", "Check URL"], correct: 1 },
+                { text: "Your Wi-Fi is unsecured. What should you do?", options: ["Secure It", "Ignore It"], correct: 0 },
+                { text: "You need to create a strong password. What should you include?", options: ["Only Letters", "Mix of Characters"], correct: 1 },
+                { text: "An unknown person asks for your personal details online. What do you do?", options: ["Provide Info", "Refuse & Report"], correct: 1 }
+            ];
 
-        function loadQuestion() {
-            if (currentQuestionIndex >= questions.length) {
-                alert("🎉 You've completed the quiz! Stay Cyber Safe! 🛡️");
-                return;
+            let currentQuestion = 0;
+            let score = 0;
+            const questionText = document.getElementById("question-text");
+            const option1 = document.getElementById("option1");
+            const option2 = document.getElementById("option2");
+            const hint = document.getElementById("hint");
+            const scoreDisplay = document.getElementById("score");
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
             }
-            let qData = questions[currentQuestionIndex];
-            document.getElementById("question").innerText = qData.q;
-            
-            let options = Math.random() > 0.5 ? [qData.correct, qData.wrong] : [qData.wrong, qData.correct];
-            document.getElementById("option1").innerText = options[0];
-            document.getElementById("option1").setAttribute("onclick", options[0] === qData.correct ? "checkAnswer(true)" : "checkAnswer(false)");
-            document.getElementById("option2").innerText = options[1];
-            document.getElementById("option2").setAttribute("onclick", options[1] === qData.correct ? "checkAnswer(true)" : "checkAnswer(false)");
-        }
 
-        function checkAnswer(isCorrect) {
-            if (!isCorrect) {
-                window.location.href = "danger.html";
-            } else {
-                currentQuestionIndex++;
-                loadQuestion();
+            function loadQuestion() {
+                if (currentQuestion >= questions.length) {
+                    document.querySelector('.container').innerHTML = `
+                        <h1>🎉 Congratulations!</h1>
+                        <p>Quiz completed! Your score: ${score}/${questions.length}</p>
+                        <button class="btn" onclick="window.location.href='index.html'">Go to Home</button>
+                    `;
+                    return;
+                }
+
+                const q = questions[currentQuestion];
+                let options = [...q.options];
+                shuffleArray(options);
+
+                questionText.textContent = q.text;
+                option1.textContent = options[0];
+                option2.textContent = options[1];
+                
+                option1.onclick = () => checkAnswer(options[0], q);
+                option2.onclick = () => checkAnswer(options[1], q);
+
+                hint.style.display = "none";
+                option1.disabled = false;
+                option2.disabled = false;
             }
-        }
 
-        window.onload = loadQuestion;
+            function checkAnswer(selectedOption, question) {
+                const correctAnswer = question.options[question.correct];
+                if (selectedOption === correctAnswer) {
+                    score++;
+                    scoreDisplay.textContent = `Score: ${score}`;
+                    currentQuestion++;
+                    loadQuestion();
+                } else {
+                    document.querySelector('.container').innerHTML = `
+                        <h1>💀 System Compromised!</h1>
+                        <p>Score: ${score}/${questions.length}</p>
+                        <p>Threat detected! Redirecting...</p>
+                    `;
+                    setTimeout(() => window.location.href = "danger.html", 2500);
+                }
+            }
+
+            loadQuestion();
+        });
     </script>
 </body>
 </html>
