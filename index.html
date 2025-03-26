@@ -1,354 +1,428 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Security Game 🛡️</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #0a0a0a;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #00ffcc;
-            animation: glow 1.5s infinite alternate;
-        }
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
-            to { text-shadow: 0 0 20px #ff3300, 0 0 30px #ff3300; }
-        }
-        .quiz-container {
-            max-width: 600px;
-            margin: auto;
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-        .question {
-            font-size: 1.3em;
-            margin: 20px 0;
-        }
-        .btn {
-            background-color: #ff3300;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #cc0000;
-        }
-        .warning {
-            display: none;
-            font-size: 1.2em;
-            color: #ff0000;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .cyber-attack {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #ffcc00;
-        }
-        img {
-            width: 100px;
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Cyber Security Game 🛡️</h1>
-
-    <div class="quiz-container">
-        <h2>Can you protect yourself from cyber threats? 🤔</h2>
-        
-        Question 1 -->
-        <!-- <div class="question">
-            <p>1️⃣ What is the most common type of cyber attack?</p>
-            <img src="./cyber_Attack.jpg" alt="Cyber Attack">
-            <br>
-            <button class="btn" onclick="showWarning('warning1')">Clicking on unknown links</button>
-            <button class="btn" onclick="showWarning('warning1')">Using strong passwords</button>
-            <div id="warning1" class="warning">🚨 You are in danger! Hackers love careless clicks!</div>
-        </div> -->
-
-        <!-- Question 2 -->
-        <!-- <div class="question">
-            <p>2️⃣ You receive an email from your bank asking for your password. What should you do?</p>
-            <img src="./Phishing.jpg" alt="Phishing Email">
-            <br>
-            <button class="btn" onclick="showWarning('warning2')">Reply with my password</button>
-            <button class="btn" onclick="showWarning('warning2')">Ignore and report the email</button>
-            <div id="warning2" class="warning">⚠️ Your account has been hacked! Never share passwords via email!</div>
-        </div> -->
-
-        <!-- Question 3 -->
-        <!-- <div class="question">
-            <p>3️⃣ What should you do if your social media account is hacked?</p>
-            <img src="Hackerr.jpg" alt="Hacker Image">
-            <br>
-            <button class="btn" onclick="showWarning('warning3')">Ignore it</button>
-            <button class="btn" onclick="showWarning('warning3')">Change password and enable 2FA</button>
-            <div id="warning3" class="warning">🚨 Immediate action needed! Secure your account NOW!</div>
-        </div>
-
-        <div class="cyber-attack">
-            <p>🌐 Real-time cyber attacks happening now:</p>
-            <p id="cyber-attack-data">Fetching latest data...</p>
-        </div>
-    </div>
-
-    <script>
-        function showWarning(id) {
-            document.getElementById(id).style.display = "block";
-        }
-
-        function updateCyberAttacks() {
-            const attacks = [
-                "🔴 500 Phishing Attacks detected worldwide!",
-                "🛑 Ransomware attack on a major hospital!",
-                "⚠️ Data breach leaked 1M user passwords!",
-                "🔐 A hacker stole sensitive banking data!"
-            ];
-            const randomAttack = attacks[Math.floor(Math.random() * attacks.length)];
-            document.getElementById("cyber-attack-data").innerText = randomAttack;
-        }
-
-        setInterval(updateCyberAttacks, 5000); // Update every 5 seconds
-        updateCyberAttacks(); // Initial call
-    </script>
-
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Security Awareness Game 🛡️</title>
+    <title>🛡️ CyberShield: Hackers' Nightmare 🌩️</title>
     <style>
+        @keyframes neonPulse {
+            0% { text-shadow: 0 0 0.5vw #ff00ff, 0 0 1vw #00ffcc, 0 0 1.5vw #ffcc00; }
+            50% { text-shadow: 0 0 1vw #00ffcc, 0 0 1.5vw #ffcc00, 0 0 2vw #ff00ff; }
+            100% { text-shadow: 0 0 0.5vw #ff00ff, 0 0 1vw #00ffcc, 0 0 1.5vw #ffcc00; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+            60% { transform: scale(1.25) rotate(3deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes glitchEffect {
+            0% { transform: skew(0deg); text-shadow: 0.15vw 0.15vw #ff0000, -0.15vw -0.15vw #00ffcc; }
+            20% { transform: skew(2deg); text-shadow: -0.15vw -0.15vw #ff0000, 0.15vw 0.15vw #00ffcc; }
+            40% { transform: skew(-2deg); }
+            60% { transform: skew(1deg); }
+            80% { transform: skew(-1deg); }
+            100% { transform: skew(0deg); text-shadow: 0.15vw 0.15vw #ff0000, -0.15vw -0.15vw #00ffcc; }
+        }
+
+        @keyframes matrixRain {
+            0% { transform: translateY(-100vh); opacity: 0.8; }
+            100% { transform: translateY(100vh); opacity: 0.2; }
+        }
+
+        @keyframes spinGlow {
+            0% { transform: rotate(0deg) scale(1); text-shadow: 0 0 0.25vw #ffcc00; }
+            50% { transform: rotate(180deg) scale(1.2); text-shadow: 0 0 0.75vw #ffcc00; }
+            100% { transform: rotate(360deg) scale(1); text-shadow: 0 0 0.25vw #ffcc00; }
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: url('https://source.unsplash.com/1600x900/?cybersecurity,technology,hacker') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a001a, #1a0033, #001a1a);
+            color: #fff;
             margin: 0;
-            padding: 0;
+            padding: 2vw;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+        }
+
+        .matrix {
+            position: absolute;
+            font-size: clamp(1em, 2vw, 1.8em);
+            color: #00ffcc;
+            opacity: 0.7;
+            animation: matrixRain linear infinite;
+            text-shadow: 0 0 0.5vw #00ffcc;
         }
 
         .container {
             max-width: 90vw;
-            margin: auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            box-shadow: 0px 0px 20px cyan;
-            animation: fadeIn 1.5s ease-in-out;
+            margin: clamp(2rem, 8vh, 5rem) auto;
+            padding: clamp(1.5rem, 5vw, 3rem);
+            background: linear-gradient(45deg, rgba(10, 10, 20, 0.95), rgba(20, 0, 40, 0.9));
+            border: 0.3vw double #ff00ff;
+            border-radius: 2vw;
+            box-shadow: 0 0 3vw rgba(0, 255, 255, 0.8), inset 0 0 1.5vw rgba(255, 0, 255, 0.5);
+            animation: bounceIn 1.2s ease-out;
+            position: relative;
+            z-index: 1;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        h1.title {
+            font-size: clamp(2em, 6vw, 4em);
+            color: #ffcc00;
+            text-shadow: 0 0 1vw #ffcc00;
+            animation: neonPulse 2s infinite, glitchEffect 0.6s infinite alternate;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.1em;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 3em;
-            color: cyan;
-            text-shadow: 0px 0px 15px cyan;
-            animation: glow 1.5s infinite alternate;
+        p.subtitle {
+            font-size: clamp(1em, 3vw, 2em);
+            color: #00ffcc;
+            text-shadow: 0 0 0.75vw #00ffcc;
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            transition: transform 0.4s, text-shadow 0.4s;
+            text-align: center;
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 15px cyan, 0 0 30px cyan; }
-            to { text-shadow: 0 0 20px red, 0 0 40px red; }
+        p.subtitle:hover {
+            transform: scale(1.05) translateY(-0.5vw);
+            text-shadow: 0 0 1.25vw #00ffcc, 0 0 2vw #ff00ff;
         }
 
-        p {
-            font-size: 1.2em;
-            max-width: 700px;
-            margin: auto;
-            color: #ddd;
-        }
-
-        .stats {
-            margin-top: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: yellow;
-        }
-
-        .stats p {
-            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-            display: inline-block;
-            padding: 5px 20px;
-        }
-
-        .stats p:hover {
-            transform: scale(1.1) rotate(2deg);
-            text-shadow: 0px 0px 15px rgb(255, 0, 0);
-            animation: shake 0.3s ease-in-out;
-        }
-
-        @keyframes shake {
-            0% { transform: scale(1.1) rotate(2deg); }
-            50% { transform: scale(1.15) rotate(-2deg); }
-            100% { transform: scale(1.1) rotate(2deg); }
-        }
-
-        .fact-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 0, 0.2);
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px yellow;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .fact-box:hover {
-            transform: scale(1.05);
-        }
-
-        .fact-box h2 {
-            color: yellow;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            text-shadow: 0px 0px 10px yellow;
-        }
-
-        .fact-text {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: white;
-            min-height: 60px;
-        }
-
-        .emoji-buttons {
-            margin-top: 10px;
-        }
-
-        .emoji-btn {
-            font-size: 1.5em;
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin: 0 10px;
-            transition: transform 0.2s;
-        }
-
-        .emoji-btn:hover {
-            transform: scale(1.2);
-        }
-
-        .new-fact-btn {
-            padding: 10px 20px;
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            background: purple;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .new-fact-btn:hover {
-            background: darkviolet;
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2.5rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            position: relative;
         }
 
         .start-btn {
-            padding: 15px 30px;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-top: 20px;
-            color: white;
-            background: red;
-            border: none;
+            padding: clamp(0.8rem, 2.5vw, 1.5rem) clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1em, 2.5vw, 1.9em);
+            color: #fff;
+            background: linear-gradient(90deg, #ff00ff, #00ffcc, #ffcc00);
+            border: 0.2vw solid #ffcc00;
+            border-radius: 1vw;
             cursor: pointer;
-            border-radius: 10px;
-            transition: 0.3s;
-            animation: pulse 1.5s infinite alternate;
+            transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            flex: 1 1 clamp(8rem, 25vw, 12rem);
+            max-width: 15rem;
+        }
+
+        .start-btn::before {
+            content: '⚡️';
+            position: absolute;
+            top: 50%;
+            left: -60%;
+            transform: translateY(-50%);
+            font-size: clamp(1.5em, 3vw, 2.5em);
+            opacity: 0;
+            transition: left 0.5s, opacity 0.5s;
+        }
+
+        .start-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .start-btn:hover::before {
+            left: 10%;
+            opacity: 1;
+        }
+
+        .start-btn:hover::after {
+            left: 100%;
         }
 
         .start-btn:hover {
-            background: darkred;
-            transform: scale(1.05);
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 0 0 2vw #ff00ff, 0 0 3vw #00ffcc;
+            background: linear-gradient(90deg, #ffcc00, #00ffcc, #ff00ff);
         }
 
-        @keyframes pulse {
-            from { box-shadow: 0px 0px 15px red; }
-            to { box-shadow: 0px 0px 25px red; }
+        .start-btn:active {
+            transform: scale(0.95);
+        }
+
+        .fact-box {
+            padding: clamp(1rem, 3vw, 2.5rem);
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.15));
+            border: 0.15vw dashed #ffcc00;
+            border-radius: 1.5vw;
+            max-width: 90%;
+            margin: 0 auto;
+            transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 0 2.5vw #ffcc00, 0 0 3.5vw #00ffcc;
+            background: linear-gradient(135deg, rgba(255, 204, 0, 0.3), rgba(0, 255, 255, 0.25));
+        }
+
+        .fact-box::before {
+            content: '💾';
+            position: absolute;
+            top: clamp(0.5rem, 1vw, 1rem);
+            right: clamp(0.5rem, 1vw, 1rem);
+            font-size: clamp(1.5em, 3vw, 2.5em);
+            animation: spinGlow 3s infinite linear;
+        }
+
+        #cyber-fact {
+            font-size: clamp(1em, 2.5vw, 1.8em);
+            color: #fff;
+            text-shadow: 0 0 0.75vw #ff00ff, 0 0 1.25vw #00ffcc;
+            min-height: clamp(3rem, 8vw, 5rem);
+            transition: color 0.3s;
+            text-align: center;
+        }
+
+        .fact-box:hover #cyber-fact {
+            color: #ffcc00;
+        }
+
+        .fade-in {
+            animation: fadeInText 1.2s ease-in-out;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(1.5vw); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji-reaction {
+            position: absolute;
+            font-size: clamp(1.5em, 4vw, 3em);
+            animation: popUp 0.9s ease-out forwards;
+            pointer-events: none;
+            text-shadow: 0 0 0.5vw #ff00ff;
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0) rotate(-10deg); opacity: 1; }
+            50% { transform: scale(1.6) rotate(10deg); opacity: 1; }
+            100% { transform: scale(0) rotate(-10deg); opacity: 0; }
+        }
+
+        .alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            animation: flashAlert 0.6s infinite;
+        }
+
+        @keyframes flashAlert {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.5; }
+        }
+
+        .alert-text {
+            font-size: clamp(1.5em, 5vw, 3em);
+            color: #fff;
+            text-shadow: 0 0 1.25vw #ff0000, 0 0 2vw #ff00ff;
+            animation: glitchEffect 0.5s infinite;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Media Queries for Fine-Tuning */
+        @media (max-width: 768px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .start-btn {
+                flex: 1 1 100%;
+                max-width: 80%;
+            }
+
+            .container {
+                padding: 3vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1.title {
+                font-size: 4vw;
+            }
+
+            p.subtitle {
+                font-size: 2.5vw;
+            }
+
+            .start-btn {
+                padding: 2vw 4vw;
+                font-size: 2.5vw;
+            }
+
+            .fact-box {
+                padding: 2vw;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="background" id="background"></div>
     <div class="container">
-        <h1>Welcome to the Cyber Security Game 🔐</h1>
-        <p>Think you're safe online? Test your knowledge and stay alert in this interactive cybersecurity challenge!</p>
-
-        <div class="stats">
-            <p>🌍 Real-Time Cyber Attacks Happening Now:</p><br><br>
-            <p class="hover-animate">🔴 Ransomware Attacks: <span id="ransomware">500</span></p><br><br>
-            <p class="hover-animate">⚠️ Phishing Attempts: <span id="phishing">1000</span></p><br><br>
-            <p class="hover-animate">💻 Data Breaches: <span id="dataBreaches">50</span></p><br><br>
+        <h1 class="title">🛡️ CyberShield: Hackers' Nightmare 🌩️</h1>
+        <p class="subtitle">💾 Outwit the digital villains! Prove your cyber prowess now! 🚀</p>
+        
+        <div class="buttons">
+            <button class="start-btn" onmouseover="playHoverSound()" onclick="playClickSound(); triggerEmoji('🎮'); showAlert('Hacking into Game 1! 🎉'); setTimeout(() => location.href='game1.html', 1000)">Game 1</button>
+            <button class="start-btn" onmouseover="playHoverSound()" onclick="playClickSound(); triggerEmoji('🕹️'); showAlert('Hacking into Game 2! 🎉'); setTimeout(() => location.href='game2.html', 1000)">Game 2</button>
+            <button class="start-btn" onmouseover="playHoverSound()" onclick="playClickSound(); triggerEmoji('❓'); showAlert('Quiz Mode Activated! 🎉'); setTimeout(() => location.href='index.html', 1000)">Quiz</button>
         </div>
-
-        <div class="fact-box">
-            <h2>🧐 DID YOU KNOW?</h2>
-            <p id="cyberFact" class="fact-text"></p>
-            <div class="emoji-buttons">
-                <button class="emoji-btn" onclick="reactToFact('👍')">👍</button>
-                <button class="emoji-btn" onclick="reactToFact('😮')">😮</button>
-                <button class="emoji-btn" onclick="reactToFact('🔥')">🔥</button>
-            </div>
-            <button class="new-fact-btn" onclick="displayRandomFact()">🎲 Show Another Fact</button>
+        
+        <div class="fact-box" onclick="changeFact(); playFactSound(); triggerEmoji('💡')">
+            <p id="cyber-fact">🚨 Did you know? 95% of cybersecurity breaches are due to human error.</p>
         </div>
-
-        <button class="start-btn" onclick="startGame()">🚀 Start the Game</button>
     </div>
 
-    <script>
-        function startGame() {
-            window.location.href = "game.html"; // Redirects to the game page
-        }
+    <div class="alert-overlay" id="alertOverlay">
+        <span class="alert-text" id="alertText"></span>
+    </div>
+    
+    <audio id="click-sound" src="https://www.myinstants.com/media/sounds/button-click.mp3"></audio>
+    <audio id="background-music" src="https://www.myinstants.com/media/sounds/hacker.mp3" loop></audio>
+    <audio id="hover-sound" src="https://www.myinstants.com/media/sounds/hover.mp3"></audio>
+    <audio id="fact-sound" src="https://www.myinstants.com/media/sounds/pop.mp3"></audio>
 
-        // Cybersecurity Facts Array
-        const cyberFacts = [
-            "🔐 Over 90% of cyberattacks start with a phishing email. Stay alert!",
-            "💰 Ransomware attacks happen every 14 seconds worldwide! 😱",
-            "💸 The average cost of a data breach in 2023 was $4.45 million! 🔥",
-            "👀 Hackers can exploit an unpatched vulnerability in just 24 hours! ⏳",
-            "🔍 Weak passwords cause 80% of hacking-related breaches. Use a strong one!",
-            "🕵️‍♂️ Only 5% of company folders are properly protected against cyber threats. 😨",
-            "🌐 The dark web sells stolen data for as little as $1 per record. 💀",
-            "🛡️ Multi-factor authentication (MFA) can block 99.9% of automated cyberattacks!",
-            "🤖 AI is being used by hackers AND cybersecurity experts in digital battles! ⚔️",
-            "🎭 Deepfake scams are rising – don’t trust everything you see online!"
+    <script>
+        const facts = [
+            "🌐 A hacker attack happens every 39 seconds. Stay sharp! ⏰",
+            "💰 Ransomware damage costs are expected to hit $20 billion annually! 😱",
+            "🚨 95% of cybersecurity breaches are due to human error. Be vigilant! 👀",
+            "🔑 There are over 300 billion passwords used worldwide. Secure yours! 🔒",
+            "💾 The first computer virus was created in 1986, named 'Brain'. History in the making! 🧠"
         ];
 
-        function displayRandomFact() {
-            let factElement = document.getElementById("cyberFact");
-            let randomFact = cyberFacts[Math.floor(Math.random() * cyberFacts.length)];
-            factElement.textContent = randomFact;
+        function createMatrixRain() {
+            const bg = document.getElementById("background");
+            const count = window.innerWidth < 768 ? 30 : 60; // Fewer drops on mobile
+            for (let i = 0; i < count; i++) {
+                const drop = document.createElement('div');
+                drop.className = 'matrix';
+                drop.innerText = Math.random() > 0.5 ? '1' : '0';
+                drop.style.left = `${Math.random() * 100}vw`;
+                drop.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                drop.style.animationDelay = `${Math.random() * 5}s`;
+                bg.appendChild(drop);
+            }
         }
 
-        function reactToFact(emoji) {
-            alert("You reacted with: " + emoji + " 🎉");
+        function changeFact() {
+            const factElement = document.getElementById("cyber-fact");
+            factElement.innerText = facts[Math.floor(Math.random() * facts.length)];
+            factElement.classList.add("fade-in");
+            setTimeout(() => factElement.classList.remove("fade-in"), 1200);
         }
 
-        // Load the first random fact
-        displayRandomFact();
+        function playClickSound() {
+            const click = document.getElementById("click-sound");
+            click.currentTime = 0;
+            click.play().catch(e => console.log("Click sound failed:", e));
+        }
+
+        function playHoverSound() {
+            const hover = document.getElementById("hover-sound");
+            hover.currentTime = 0;
+            hover.volume = 0.5;
+            hover.play().catch(e => console.log("Hover sound failed:", e));
+        }
+
+        function playFactSound() {
+            const factSound = document.getElementById("fact-sound");
+            factSound.currentTime = 0;
+            factSound.volume = 0.6;
+            factSound.play().catch(e => console.log("Fact sound failed:", e));
+        }
+
+        function startBackgroundMusic() {
+            const music = document.getElementById("background-music");
+            music.volume = 0.3;
+            music.play().catch(e => console.log("Background music failed:", e));
+        }
+
+        function triggerEmoji(emoji) {
+            const buttons = document.querySelector('.buttons');
+            const rect = buttons.getBoundingClientRect();
+            const emojiSpan = document.createElement('span');
+            emojiSpan.className = 'emoji-reaction';
+            emojiSpan.innerText = emoji;
+            emojiSpan.style.left = `${rect.width / 2}px`;
+            emojiSpan.style.top = `${rect.height / 2}px`;
+            buttons.appendChild(emojiSpan);
+            setTimeout(() => emojiSpan.remove(), 900);
+        }
+
+        function showAlert(message) {
+            const overlay = document.getElementById("alertOverlay");
+            const alertText = document.getElementById("alertText");
+            alertText.textContent = message;
+            overlay.style.display = "flex";
+            setTimeout(() => overlay.style.display = "none", 1000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            createMatrixRain();
+            setInterval(changeFact, 7000);
+            startBackgroundMusic();
+            changeFact();
+        });
+
+        window.addEventListener("beforeunload", () => {
+            document.getElementById("background-music").pause();
+        });
+
+        window.addEventListener("resize", () => {
+            document.getElementById("background").innerHTML = "";
+            createMatrixRain();
+        });
     </script>
 </body>
 </html>
