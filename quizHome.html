@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛡️ Cyber Defense Arena 🔐</title>
+    <style>
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 0.5vw cyan, 0 0 1vw cyan, 0 0 1.5vw #ff00ff; }
+            50% { text-shadow: 0 0 0.75vw #ff00ff, 0 0 1.25vw cyan, 0 0 2vw red; }
+            100% { text-shadow: 0 0 0.5vw cyan, 0 0 1vw cyan, 0 0 1.5vw #ff00ff; }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0.5vw red, 0 0 1vw #ff00ff; }
+            50% { box-shadow: 0 0 1vw cyan, 0 0 1.5vw red; }
+            100% { box-shadow: 0 0 0.5vw red, 0 0 1vw #ff00ff; }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-0.5vw); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes statShake {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(3deg); }
+            75% { transform: rotate(-3deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-1vw); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: url('https://source.unsplash.com/1600x900/?cybersecurity,technology,hacker') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 2vw;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 90vw;
+            margin: clamp(2rem, 5vh, 3rem) auto;
+            padding: clamp(1rem, 3vw, 3rem);
+            background: rgba(0, 0, 0, 0.9);
+            border: 0.2vw solid cyan;
+            border-radius: 2vw;
+            box-shadow: 0 0 2vw rgba(0, 255, 255, 0.7), inset 0 0 1vw rgba(255, 0, 255, 0.3);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(1.8em, 5vw, 3.5em);
+            color: cyan;
+            text-shadow: 0 0 0.75vw cyan;
+            animation: neonGlow 2s infinite;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            text-align: center;
+        }
+
+        p.intro {
+            font-size: clamp(1em, 2.5vw, 1.5em);
+            max-width: 90%;
+            margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+            color: #e0e0e0;
+            text-shadow: 0 0 0.25vw #ff00ff;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        p.intro:hover {
+            transform: scale(1.02);
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(1rem, 2vw, 2rem);
+            margin: clamp(1.5rem, 3vw, 2.5rem) 0;
+        }
+
+        .stat-card {
+            background: rgb(202, 21, 36);
+            padding: clamp(0.8rem, 2vw, 1.2rem);
+            border-radius: 1vw;
+            width: clamp(10rem, 25vw, 15rem);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.1) translateY(-0.5vw);
+            box-shadow: 0 0 1vw red;
+            animation: statShake 0.5s infinite;
+        }
+
+        .stat-card p {
+            font-size: clamp(0.9em, 2vw, 1.4em);
+            color: yellow;
+            text-shadow: 0 0 0.5vw yellow;
+            margin: 0;
+            text-align: center;
+        }
+
+        .fact-box {
+            margin: clamp(1.5rem, 3vw, 2.5rem) auto;
+            padding: clamp(1rem, 2.5vw, 2rem);
+            background: rgba(0, 255, 255, 0.2);
+            border: 0.15vw dashed #ff00ff;
+            border-radius: 1.5vw;
+            max-width: 90%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .fact-box:hover {
+            transform: rotate(2deg);
+            box-shadow: 0 0 1.5vw cyan;
+        }
+
+        .fact-box h2 {
+            font-size: clamp(1.2em, 3vw, 2em);
+            color: #ff00ff;
+            text-shadow: 0 0 0.75vw #ff00ff;
+            margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+            text-align: center;
+        }
+
+        .fact-text {
+            font-size: clamp(0.9em, 2vw, 1.3em);
+            color: #fff;
+            min-height: clamp(3rem, 8vw, 5rem);
+            text-shadow: 0 0 0.25vw cyan;
+            text-align: center;
+        }
+
+        .emoji-buttons {
+            margin-top: clamp(0.8rem, 1.5vw, 1.2rem);
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.8rem, 2vw, 1.2rem);
+        }
+
+        .emoji-btn {
+            font-size: clamp(1.2em, 3vw, 2em);
+            background: rgba(255, 255, 255, 0.1);
+            border: 0.15vw solid cyan;
+            border-radius: 50%;
+            padding: clamp(0.5rem, 1vw, 0.8rem);
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .emoji-btn:hover {
+            transform: scale(1.3) rotate(10deg);
+            background: rgba(255, 0, 255, 0.3);
+        }
+
+        .new-fact-btn {
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(0.8em, 2vw, 1.2em);
+            color: #fff;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            border: none;
+            border-radius: 1vw;
+            cursor: pointer;
+            margin-top: clamp(0.8rem, 2vw, 1.2rem);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .new-fact-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 1vw cyan;
+        }
+
+        .start-btn {
+            padding: clamp(1rem, 2.5vw, 1.5rem) clamp(2rem, 4vw, 2.5rem);
+            font-size: clamp(1em, 2.5vw, 1.8em);
+            color: #fff;
+            background: linear-gradient(90deg, red, #ff00ff);
+            border: 0.15vw solid red;
+            border-radius: 1.5vw;
+            cursor: pointer;
+            margin: clamp(2rem, 5vw, 3rem) auto 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulseGlow 1.5s infinite;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 1.5vw red;
+        }
+
+        .start-btn:active {
+            transform: scale(0.95);
+        }
+
+        .alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            animation: flashAlert 0.5s infinite;
+        }
+
+        @keyframes flashAlert {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.5; }
+        }
+
+        .alert-text {
+            font-size: clamp(1.2em, 4vw, 2em);
+            color: #fff;
+            text-shadow: 0 0 0.75vw red;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Media Queries for Fine-Tuning */
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card {
+                width: 80%;
+                max-width: 15rem;
+            }
+
+            .emoji-buttons {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4vw;
+            }
+
+            p.intro {
+                font-size: 2.5vw;
+            }
+
+            .fact-box h2 {
+                font-size: 3vw;
+            }
+
+            .start-btn {
+                padding: 2vw 4vw;
+                font-size: 2.5vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Cyber Defense Arena 🔐</h1>
+        <p class="intro">Gear up, soldier! Test your cyber skills in this high-stakes digital battlefield!</p>
+
+        <div class="stats">
+            <div class="stat-card" onclick="showAlert('Ransomware is on the rise!')">
+                <p>🔴 Ransomware Attacks: <span id="ransomware">500</span></p>
+            </div>
+            <div class="stat-card" onclick="showAlert('Phishing emails flood inboxes daily!')">
+                <p>⚠️ Phishing Attempts: <span id="phishing">1000</span></p>
+            </div>
+            <div class="stat-card" onclick="showAlert('Data breaches expose millions!')">
+                <p>💻 Data Breaches: <span id="dataBreaches">50</span></p>
+            </div>
+        </div>
+
+        <div class="fact-box">
+            <h2>💾 Cyber Intel Drop</h2>
+            <p id="cyberFact" class="fact-text"></p>
+            <div class="emoji-buttons">
+                <button class="emoji-btn" onclick="reactToFact('👍')">👍</button>
+                <button class="emoji-btn" onclick="reactToFact('😮')">😮</button>
+                <button class="emoji-btn" onclick="reactToFact('🔥')">🔥</button>
+            </div>
+            <!--<button class="new-fact-btn" onclick="displayRandomFact()">🎲 Deploy New Intel</button>-->
+        </div>
+
+        <button class="start-btn" onclick="startGame()">🚀 Engage the Quiz</button>
+    </div>
+
+    <div class="alert-overlay" id="alertOverlay">
+        <span class="alert-text" id="alertText"></span>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.myinstants.com/media/sounds/hacker.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const cyberFacts = [
+            "🔐 Over 90% of cyberattacks start with a phishing email. Stay alert!",
+            "💰 Ransomware attacks happen every 14 seconds worldwide! 😱",
+            "💸 The average cost of a data breach in 2023 was $4.45 million! 🔥",
+            "👀 Hackers can exploit an unpatched vulnerability in just 24 hours! ⏳",
+            "🔍 Weak passwords cause 80% of hacking-related breaches. Use a strong one!",
+            "🕵️‍♂️ Only 5% of company folders are properly protected against cyber threats. 😨",
+            "🌐 The dark web sells stolen data for as little as $1 per record. 💀",
+            "🛡️ Multi-factor authentication (MFA) can block 99.9% of automated cyberattacks!",
+            "🤖 AI is being used by hackers AND cybersecurity experts in digital battles! ⚔️",
+            "🎭 Deepfake scams are rising – don’t trust everything you see online!"
+        ];
+
+        let statInterval;
+
+        function startGame() {
+            window.location.href = "game.html";
+        }
+
+        function displayRandomFact() {
+            const factElement = document.getElementById("cyberFact");
+            const randomFact = cyberFacts[Math.floor(Math.random() * cyberFacts.length)];
+            factElement.textContent = randomFact;
+            playSound('https://www.myinstants.com/media/sounds/button-click.mp3');
+        }
+
+        function reactToFact(emoji) {
+            const factBox = document.querySelector('.fact-box');
+            const span = document.createElement('span');
+            span.style.cssText = `font-size: clamp(1.5em, 4vw, 2em); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); animation: bounce 1s;`;
+            span.textContent = emoji;
+            factBox.appendChild(span);
+            setTimeout(() => span.remove(), 1000);
+            playSound('https://www.myinstants.com/media/sounds/pop.mp3');
+        }
+
+        function updateStats() {
+            document.getElementById("ransomware").textContent = Math.floor(Math.random() * 1000 + 500);
+            document.getElementById("phishing").textContent = Math.floor(Math.random() * 2000 + 1000);
+            document.getElementById("dataBreaches").textContent = Math.floor(Math.random() * 100 + 50);
+        }
+
+        function showAlert(message) {
+            const overlay = document.getElementById("alertOverlay");
+            const alertText = document.getElementById("alertText");
+            alertText.textContent = message;
+            overlay.style.display = "flex";
+            playSound('https://www.myinstants.com/media/sounds/alarm.mp3');
+            setTimeout(() => overlay.style.display = "none", 2000);
+        }
+
+        function playSound(url) {
+            const audio = new Audio(url);
+            audio.play().catch(e => console.log("Audio play failed:", e));
+        }
+
+        // Initialize
+        displayRandomFact();
+        setInterval(displayRandomFact, 10000);
+        updateStats();
+        statInterval = setInterval(updateStats, 3000);
+
+        const bgMusic = document.getElementById("bgMusic");
+        bgMusic.volume = 0.3;
+        bgMusic.play().catch(e => console.log("Background music failed:", e));
+
+        window.addEventListener("beforeunload", () => {
+            bgMusic.pause();
+            clearInterval(statInterval);
+        });
+    </script>
+</body>
+</html>
